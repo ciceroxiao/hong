@@ -1,0 +1,40 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 替换为你的默认分支，例如master
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 检出代码
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # 设置Ruby环境
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'  # 使用支持的Ruby版本
+        bundler-cache: true   # 缓存Bundler依赖
+
+    # 安装依赖并构建Jekyll站点
+    - name: Build Jekyll Site
+      run: |
+        gem install bundler
+        bundle install
+        bundle exec jekyll build --baseurl "/hong"
+
+    # 部署到gh-pages分支
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'  # 仅在main分支推送时部署
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_site/hong  # 由于destination是_site/hong，部署时指定这个目录

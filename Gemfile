@@ -1,12 +1,7 @@
 source "https://rubygems.org"
-
-# 指定Jekyll版本
 gem "jekyll", "~> 4.4.1"
-
-# 指定主题（之前你在_config.yml中使用minima）
-gem "minima", "~> 2.5"
-
-# 插件
+gem "jekyll-theme-chirpy", "~> 6.5"  # 替换minima为chirpy主题
+gem "webrick"  # 添加webrick以支持本地服务器
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
 end
