@@ -21,14 +21,14 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.1'  # 使用支持的Ruby版本
+        ruby-version: '3.2'  # 升级到Ruby 3.2以满足sass-embedded的要求
         bundler-cache: true   # 缓存Bundler依赖
 
     # 安装依赖并构建Jekyll站点
     - name: Build Jekyll Site
       run: |
         gem install bundler
-        bundle install
+        bundle install --verbose  # 添加--verbose以输出详细日志
         bundle exec jekyll build --baseurl "/hong"
 
     # 部署到gh-pages分支
