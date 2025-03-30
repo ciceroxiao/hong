@@ -165,6 +165,7 @@ PLATFORMS
 DEPENDENCIES
   jekyll (~> 4.3.3)
   jekyll-feed (~> 0.17)
+  jekyll-paginate
   jekyll-theme-chirpy (~> 6.5)
   webrick
 

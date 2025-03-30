@@ -1,0 +1,12 @@
+# 键值对形式，定义作者
+Hong:
+  name: Hong
+  email: xiaocicero@gmail.com
+  url: https://ciceroxiao.github.io/hong/
+  avatar: /assets/img/avatar.jpg
+  
+王小波:
+  name: 王小波
+
+儒家:
+  name: 儒家
