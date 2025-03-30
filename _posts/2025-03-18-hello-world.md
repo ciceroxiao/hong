@@ -9,3 +9,6 @@ author: Hong
 ---
 
 欢迎来到我的个人博客！
+
+![My Image Alt Text](/assets/img/avatar.jpg)
+
